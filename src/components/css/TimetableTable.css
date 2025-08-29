@@ -1,0 +1,173 @@
+/* src/components/css/TimetableTable.css */
+.timetable-container {
+  margin: 20px 0;
+  overflow-x: auto;
+  height: calc(100vh - 190px); /* Adjust based on your layout */
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(255,255,255,0.4);
+}
+
+.timetable-table {
+  border: none;
+  border-collapse: collapse;
+  width: 100%;              /* full width */
+  table-layout: fixed;       /* force equal column widths */
+  font-family: Arial, sans-serif;
+  background-color: #EEEEEE;
+  height: 100%;
+  min-height: 400px;
+}
+
+.timetable-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2; /* keep headers above cells */
+  background-color:#EEEEEE; /* keep background visible while scrolling */
+  padding: 10px;
+  border-bottom: 2px solid #e8e6e6;
+  color: #5C677D;
+}
+
+.timetable-table th,
+.timetable-table td {
+  padding: 10px;
+  border: 2px solid #e8e6e6;
+  text-align: center;
+  vertical-align: top;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.timetable-table th:first-child,
+.timetable-table td:first-child {
+  width: 130px;             /* fixed width for Time column */
+  min-width: 130px;         /* prevent shrinking */
+  max-width: 150px;
+  font-weight: bold;
+  background-color: #EEEEEE;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  border-right: 2px solid #e8e6e6;
+}
+
+.time-cell {
+  background-color: #EEEEEE;
+  font-weight: bold;
+  vertical-align: top;
+  padding: 10px;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  color: #5C677D;
+}
+
+.time-cell.clickable {
+  cursor: pointer;
+  background-color: #e0e0e0;
+  transition: background-color 0.2s ease;
+}
+
+.time-cell.clickable:hover {
+  background-color: #d0d0d0;
+}
+
+.collapse-indicator {
+  margin-left: 8px;
+  font-size: 10px;
+  display: inline-block;
+  width: 12px;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  color: #666;
+}
+
+.error {
+  text-align: center;
+  padding: 20px;
+  color: #d32f2f;
+  background-color: #ffebee;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+/* Scrollbar for WebKit browsers (Chrome, Edge, Safari) */
+.timetable-container::-webkit-scrollbar {
+  width: 15px; /* thickness */
+}
+
+.timetable-container::-webkit-scrollbar-track {
+  background: #e0e0e0; /* match your table/card background */
+  border-radius: 0 10px 10px 0; /* round left side only */
+}
+
+.timetable-container::-webkit-scrollbar-thumb {
+  background-color: #5C677D;
+  border-radius: 0 10px 10px 0; /* same rounding on thumb */
+  border: 3px solid #e0e0e0; /* creates inset look */
+}
+
+.timetable-container::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.timetable-cell {
+  min-width: 150px;
+  height: auto;
+  position: relative;
+}
+
+.collapsed-cell {
+  background-color: #f5f5f5;
+  border: 2px solid #e8e6e6;
+}
+
+.time-slot-row.collapsed .timetable-cell:not(.time-cell) {
+  display: none;
+}
+
+.assignment-info {
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin: 5px 0;
+  border-radius: 3px;
+  background-color: #EEEEEE;
+  text-align: center;
+  overflow-wrap: anywhere;
+  vertical-align: top;
+  font-size: 11px;
+  cursor: pointer;
+  color: #5C677D;
+}
+
+.assignment-info:hover {
+  background-color: #5C677D;
+  color: white;
+}
+
+.course-code {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.dash-line {
+  color: #888;
+  margin: 3px 0;
+  font-size: 10px;
+}
+
+.room-time {
+  font-size: 11px;
+  color: #555;
+}
+
+.assignment-info:hover .room-time,
+.assignment-info:hover .dash-line {
+  color: white;
+}
