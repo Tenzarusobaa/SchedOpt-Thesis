@@ -1,3 +1,4 @@
+//server/api/main.js
 const express = require("express");
 const mysql = require("mysql2");
 const bodyParser = require("body-parser");
@@ -8,7 +9,7 @@ require("dotenv").config(); // load .env
 const tableRoutes = require("./table.js");
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000; // Use Railway's dynamic port
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -37,6 +38,11 @@ app.use((req, res, next) => {
 });
 
 app.use("/api", tableRoutes);
+
+// ✅ Health check route
+app.get("/", (req, res) => {
+  res.send("Hello Admin! 🚀 Your API is working.");
+});
 
 app.listen(PORT, () => {
   console.log(`🚀 Server is running on port ${PORT}`);

@@ -1,4 +1,4 @@
-// src/api/table.js
+//server/api/main.js
 const express = require("express");
 const router = express.Router();
 
