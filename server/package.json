@@ -4,6 +4,7 @@
   "main": "api/main.js",
   "scripts": {
     "start": "node api/main.js",
+    "build": "react-scripts build",
     "dev": "nodemon api/main.js"
   },
   "dependencies": {
